@@ -7,10 +7,12 @@ const routes = require('./routes');
 const PORT = process.env.PORT || 3001;
 const app = express();
 
-db.on('error', (error) => console.error(error))
-db.once('open', () => console.log('Connected to Database'))
 
+
+
+app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(routes)
 
+db.once('open', () => console.log('Connected to Database'))
 app.listen(PORT, () => console.log(`Server live at http://localhost:${PORT}`))

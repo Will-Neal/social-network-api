@@ -40,8 +40,13 @@ const thoughtSchema = new mongoose.Schema(
             type: String,
             required: true
         },
-        reactions: [reactionSchema]     
+        reactions: [reactionSchema]
+    }, {
+    toJSON: {
+        getters: true,
+        virtuals: true
     }
+}
 );
 
 thoughtSchema.virtual('reactionCount').get(() => this.reactions.length);
