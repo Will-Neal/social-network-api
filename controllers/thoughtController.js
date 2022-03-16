@@ -1,6 +1,10 @@
+const { Thought } = require('../models');
+
+
 module.exports = {
-    getThoughts(req, res) {
-        res.send('This is the GET route for all thoughts')
+    async getThoughts(req, res) {
+        const allThoughts = await Thought.find({})
+        res.json(allThoughts)
     },
 
     getSingleThought(req, res) {

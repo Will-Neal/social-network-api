@@ -49,7 +49,7 @@ const thoughtSchema = new mongoose.Schema(
 }
 );
 
-thoughtSchema.virtual('reactionCount').get(() => this.reactions.length);
+// //thoughtSchema.virtual('reactionCount').get(() => this.reactions.length);
 
 const Thought = mongoose.model('Thought', thoughtSchema)
 
