@@ -44,12 +44,12 @@ const thoughtSchema = new mongoose.Schema(
     }, {
     toJSON: {
         getters: true,
-        virtuals: true
+        virtuals: false
     }
 }
 );
 
-// //thoughtSchema.virtual('reactionCount').get(() => this.reactions.length);
+thoughtSchema.virtual('reactionCount').get(() => this.reactions.length);
 
 const Thought = mongoose.model('Thought', thoughtSchema)
 

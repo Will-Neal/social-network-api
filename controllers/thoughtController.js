@@ -7,7 +7,8 @@ module.exports = {
         res.json(allThoughts)
     },
 
-    getSingleThought(req, res) {
-        res.send(`This is the GET route for thought id: ${req.params.thoughtId}`)
+    async getSingleThought(req, res) {
+        const singleThought = await Thought.findOne({ id: req.params.thoughtId})
+        res.json(singleThought)
     }
 }

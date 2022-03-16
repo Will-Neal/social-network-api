@@ -7,7 +7,7 @@ module.exports = {
     },
 
     async getSingleUser(req, res) {
-        const singleUser = await User.findOne({ _id: req.params.id})
+        const singleUser = await User.findOne({ _id: req.params.userId})
         res.json(singleUser)
     }
 }
