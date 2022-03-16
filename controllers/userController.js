@@ -1,9 +1,13 @@
+const { User, Thought } = require('../models')
+
 module.exports = {
-    getUsers(req, res) {
-        res.send('This is the GET route for all users')
+    async getUsers(req, res) {
+        const users = await User.find({})
+        res.send(users)
     },
 
-    getSingleUser(req, res) {
-        res.send(`This is the GET route for user id: ${req.params.userId}`)
+    async getSingleUser(req, res) {
+        const singleUser = await User.findOne({ _id: req.params.id})
+        res.json(singleUser)
     }
 }
