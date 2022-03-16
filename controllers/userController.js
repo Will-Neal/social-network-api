@@ -17,6 +17,14 @@ module.exports = {
         const newUser = await User.create(req.body);
         res.json(`New User username: ${newUser.username} email: ${newUser.email} added successfully...`)
     },
+    //PUT a user by Id
+    async updateUser(req, res) {
+        const updatedUser = await User.findOneAndUpdate(
+            {_id: req.params.userId},
+            {$set: req.body},
+            {new: true})
+        res.json(`${updatedUser.username} updated successfully...`)    
+    },
     //Delete a User
     async deleteUser(req, res) {
         const deletedUser = await User.findOneAndDelete({ _id:req.params.userId});
