@@ -15,11 +15,11 @@ module.exports = {
     //Post a new user
     async postNewUser(req, res) {
         const newUser = await User.create(req.body);
-        res.json(newUser)
+        res.json(`New User username: ${newUser.username} email: ${newUser.email} added successfully...`)
     },
     //Delete a User
     async deleteUser(req, res) {
         const deletedUser = await User.findOneAndDelete({ _id:req.params.userId});
-        res.json(deletedUser)
+        res.json(`${deletedUser.username} deleted successfully...`)
     }
 }
