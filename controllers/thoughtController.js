@@ -1,4 +1,4 @@
-const { Thought } = require('../models');
+const { Thought, User } = require('../models');
 
 
 module.exports = {
@@ -15,7 +15,11 @@ module.exports = {
     // POST new thought
     async postNewThought(req, res) {
         const newThought = await Thought.create(req.body);
-        res.json(`New Thought created successfully...`)
+        const addToUser = await User.findOneAndUpdate(
+            { username: req.body.username },
+            { $addToSet: { thoughts: newThought._id}},
+            {new: true}) 
+        res.json(`${addToUser.username}'s New Thought created successfully...`)
     },
     //PUT Update thought by id
     async updateThought(req, res) {
