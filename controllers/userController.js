@@ -34,7 +34,7 @@ module.exports = {
     async addNewFriend(req, res) {
         const newFriend = await User.findOneAndUpdate(
             {_id: req.params.userId},
-            { $push: { friends: req.params.friendsId}},
+            { $addToSet: { friends: req.params.friendsId}},
             { new: true })
         console.log(newFriend)
         res.json(`New friend added to ${newFriend.username} successfully...`)

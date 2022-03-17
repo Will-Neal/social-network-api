@@ -25,6 +25,24 @@ module.exports = {
             {new:true});
         res.json(`Thought id ${updatedThought._id} updated successfully...`)
     },
+    //POST add Reaction
+    async addReaction(req, res) {
+        const newReaction = await Thought.findOneAndUpdate(
+            {_id: req.params.thoughtId},
+            { $addToSet: { reactions: req.body}},
+            { new: true });
+        console.log(newReaction)
+        res.json('New reaction added successfully...')
+    },
+    // DELETE Reaction by ID
+    async deleteReaction(req, res) {
+        const deletedReaction = await Thought.findByIdAndUpdate(
+            { _id: req.params.thoughtId},
+            { $pull: {reactions: {reactionId: req.params.reactionId}}},
+            { new: true });
+        console.log(deletedReaction)
+        res.json(`Reaction deleted successfully...`) 
+    }, 
     // DELETE thought by id
     async deleteThought(req, res) {
         const deletedThought = await Thought.findOneAndDelete({ _id:req.params.thoughtId});
