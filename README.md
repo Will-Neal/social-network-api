@@ -18,7 +18,7 @@
 
   To use the application use `npm run seed` to seed the database and then `npm run server` to start the server. Then use an API client like Insomnia or Postman for CRUD operations. 
 
-  For a video of the application in action [click here.](https://blognog-techblog.herokuapp.com/)
+  For a video of the application in action [click here.](https://drive.google.com/file/d/1unRWULOQBIYh51QJIZJwa6U2uGPrGYNa/view)
 
   ![Node Screenshot](https://github.com/Will-Neal/social-network-api/blob/main/assets/node-screenshot.jpg?raw=true)
 
