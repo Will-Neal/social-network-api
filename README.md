@@ -20,7 +20,9 @@
 
   For a video of the application in action [click here.](https://blognog-techblog.herokuapp.com/)
 
-  ![Social Network API Screenshot](https://github.com/Will-Neal/Tech-Blog/blob/main/screenshots/blognog-screenshot.jpg?raw=true)
+  ![Node Screenshot](https://github.com/Will-Neal/social-network-api/blob/main/assets/node-screenshot.jpg?raw=true)
+
+  ![Insomnia Screenshot](https://github.com/Will-Neal/social-network-api/blob/main/assets/insomnia-screenshot.jpg?raw=true)
   ## License
 
   ![License Badge](https://img.shields.io/badge/license-MIT-orange?style=plastic=appveyor?raw=true)
