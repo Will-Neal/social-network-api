@@ -29,5 +29,23 @@ module.exports = {
     async deleteUser(req, res) {
         const deletedUser = await User.findOneAndDelete({ _id:req.params.userId});
         res.json(`${deletedUser.username} deleted successfully...`)
+    },
+    //POST add new friend
+    async addNewFriend(req, res) {
+        const newFriend = await User.findOneAndUpdate(
+            {_id: req.params.userId},
+            { $push: { friends: req.params.friendsId}},
+            { new: true })
+        console.log(newFriend)
+        res.json(`New friend added to ${newFriend.username} successfully...`)
+    },
+    //DELETE friend from User
+    async deleteFriend(req, res) {
+        const deletedFriend = await User.findOneAndUpdate(
+            { friends: req.params.friendsId},
+            { $pull: {friends: req.params.friendsId}},
+            { new: true }
+        )
+        res.json(`Friend ID: ${req.params.friendsId} removed from user ${deletedFriend.username}`)
     }
 }
