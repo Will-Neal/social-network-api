@@ -1,6 +1,7 @@
 const { ObjectId } = require('bson');
 const mongoose = require('mongoose');
 
+//SCHEMA FOR REACTIONS
 const reactionSchema = new mongoose.Schema(
     {
         reactionId: {
@@ -26,6 +27,7 @@ const reactionSchema = new mongoose.Schema(
     }
 )
 
+//SCHEMA FOR THOUGHTS
 const thoughtSchema = new mongoose.Schema(
     {
         thoughtText: {
@@ -54,6 +56,7 @@ const thoughtSchema = new mongoose.Schema(
 }
 );
 
+//VIRTUAL THAT COUNTS THE NUMBER OF REACTIONS IN THE ARRAY
 thoughtSchema.virtual('reactionCount').get(function(){
     this.reactions.length
 });
